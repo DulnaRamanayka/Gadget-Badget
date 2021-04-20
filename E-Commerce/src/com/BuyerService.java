@@ -65,6 +65,7 @@ public class BuyerService
     String BuyerEmail = BuyerObject.get("Buyer Email").getAsString(); 
     String BuyerContactNumber =BuyerObject.get("Buyer Contact Number").getAsString(); 
     String BuyerAddress =BuyerObject.get("Buyer Address").getAsString(); 
+    
     String output = BuyerObj.updateBuyer(BuyerID,BuyerCode, BuyerName, BuyerEmail,BuyerContactNumber,BuyerAddress);
     return output;
    }
