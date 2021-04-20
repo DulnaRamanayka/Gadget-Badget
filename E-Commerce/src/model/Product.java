@@ -57,7 +57,7 @@ public String insertProduct(String code, String name, String price, String desc,
 					
 					catch (Exception e)
 					{
-						output = "Error while inserting the Product.";
+						output = "Error while inserting the Product...";
 						System.err.println(e.getMessage());
 					}
 					
