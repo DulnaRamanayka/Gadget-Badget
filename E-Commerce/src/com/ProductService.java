@@ -71,9 +71,7 @@ public String updateProduct(String productData)
 
 
 
-
-
-/*@DELETE
+@DELETE
 @Path("/")
 @Consumes(MediaType.APPLICATION_XML)
 @Produces(MediaType.TEXT_PLAIN)
@@ -90,7 +88,7 @@ public String deleteProduct(String productData)
 		return output;
 	}
 	
-	*/
+	
 	
 }	
 	
