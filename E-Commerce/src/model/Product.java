@@ -1,6 +1,16 @@
 package model;
 import java.sql.*;
 
+import javax.ws.rs.Consumes;
+import javax.ws.rs.DELETE;
+import javax.ws.rs.Path;
+import javax.ws.rs.Produces;
+import javax.ws.rs.core.MediaType;
+
+import org.jsoup.Jsoup;
+import org.jsoup.nodes.Document;
+import org.jsoup.parser.Parser;
+
 public class Product {
 	//A common method to connect to the DB
 	private Connection connect()
@@ -64,7 +74,9 @@ public String insertProduct(String code, String name, String price, String desc,
 					return output;
 				}
 
-			}
+		}
+
+
 public String readProducts() {
 		
 			
@@ -126,6 +138,87 @@ public String readProducts() {
 			return output;
 		}
 
+
+public String updateProduct(String ID, String code, String name, String price, String desc,String res)
+{
+	 String output = "";
+	 try{
+		 
+		 Connection con = connect();
+		 if (con == null)
+		 {
+			 return "Error while connecting to the database for updating.";
+			 
+		 }
+		// create a prepared statement
+			String query = "UPDATE product SET productCode=?,productName=?,productPrice=?,productDesc=?,productRes=?WHERE productID=?";
+			
+			
+		    PreparedStatement preparedStmt = con.prepareStatement(query);
+		    	 
+				 
+			 // binding values
+			preparedStmt.setString(1, code);
+			preparedStmt.setString(2, name);
+			preparedStmt.setDouble(3, Double.parseDouble(price));
+			preparedStmt.setString(4, desc);
+			preparedStmt.setString(5, res);
+			preparedStmt.setInt(6, Integer.parseInt(ID));
+			 	
+				// execute the statement
+				 preparedStmt.execute();
+				 con.close();
+				 output = "Updated successfully";
+				 
+	 }
+	 	catch (Exception e)
+	 	{
+	 		output = "Error while updating the Product.";
+	 	System.err.println(e.getMessage());
+	 	}
+	 	return output;
+	}
+
+
+
+public String deleteProduct(String productID)
+{
+	String output = "";
+	try
+	{
+		Connection con = connect();
+		if (con == null)
+			
+		{	
+			return "Error while connecting to the database for deleting.";
 	
+		}
+		
+		// create a prepared statement
+		 String query = "delete from product where productID=?";
+		 PreparedStatement preparedStmt = con.prepareStatement(query);
+		 
+		// binding values
+		 preparedStmt.setInt(1, Integer.parseInt(productID));
+		 
+		 // execute the statement
+		 preparedStmt.execute();
+		 con.close();
+		 output = "Deleted successfully";
+		 
+	}
 	
+		catch (Exception e)
+		{
+		
+			output = "Error while deleting the Product.";
+			System.err.println(e.getMessage());
+		}
+ 
+		return output;
+ 
+ 
+		}
+
+
 }	
