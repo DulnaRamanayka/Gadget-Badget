@@ -24,7 +24,23 @@ public class ProductService {
 
 	public String readProducts()
 	 {
-		return "Hello World";
+		return  productObj.readProducts();
 	 }
+	
+	@POST
+	@Path("/")
+	@Consumes(MediaType.APPLICATION_FORM_URLENCODED)
+	@Produces(MediaType.TEXT_PLAIN)
+	public String insertProduct
+			(@FormParam("productCode") String productCode,
+			@FormParam("productName") String productName,
+			@FormParam("productPrice") String productPrice,
+			@FormParam("productDesc") String productDesc,
+			@FormParam("productRes") String productRes)
+		{
+			String output = productObj.insertProduct(productCode, productName, productPrice, productDesc,productRes);
+			return output;
+		}
+	
 }	
 	
