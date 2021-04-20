@@ -76,5 +76,21 @@ public class ResearcherService {
 		System.out.println("7");
 		return output; 
 	}
+	
+	
+	@DELETE
+	@Path("/") 
+	@Consumes(MediaType.APPLICATION_XML) 
+	@Produces(MediaType.TEXT_PLAIN) 
+	public String deleteItem(String itemData) 
+	{ 
+		//Convert the input string to an XML document
+		Document doc = Jsoup.parse(itemData, "", Parser.xmlParser()); 
+	 
+		//Read the value from the element <itemID>
+		String researcher_ID = doc.select("reseacherID").text(); 
+		String output = itemObj.deleteItem(researcher_ID); 
+		return output; 
+	}
 
 }
