@@ -47,5 +47,34 @@ public class ResearcherService {
 		return itemObj.readItems();  
 	 }
 	
+	
+	@PUT
+	@Path("/") 
+	@Consumes(MediaType.APPLICATION_JSON) 
+	@Produces(MediaType.TEXT_PLAIN) 
+	public String updateItem(String itemData) 
+	{ 
+		//Convert the input string to a JSON object 
+		JsonObject itemObject = new JsonParser().parse(itemData).getAsJsonObject(); 
+		
+		System.out.println("5");
+		
+		//Read the values from the JSON object
+		String reseacherID = itemObject.get("reseacherID").getAsString(); 
+		String researcherCode = itemObject.get("researcherCode").getAsString(); 
+		String researcherName = itemObject.get("researcherName").getAsString(); 
+		String Email = itemObject.get("Email").getAsString(); 
+		String contactNo = itemObject.get("contactNo").getAsString();
+		String projectCategory = itemObject.get("projectCategory").getAsString();
+		
+		int pNo = Integer.parseInt(contactNo);
+		
+		System.out.println("6");
+		
+		String output = itemObj.updateItem(reseacherID, researcherCode, researcherName, Email, pNo, projectCategory); 
+		
+		System.out.println("7");
+		return output; 
+	}
 
 }
