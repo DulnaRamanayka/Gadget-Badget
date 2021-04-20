@@ -86,10 +86,10 @@ public class Researcher {
 				return "Error while connecting to the database for reading.";
 			} 
 			// Prepare the html table to be displayed
-			output = "<table border='1'><tr><th>Reseacher Code</th><th>Item Name</th>" +
+			output = "<table border='1'><tr><th>Researcher Id</th><th>Researcher Code</th>" +
 					"<th>Researcher Name</th>" + 
-					"<th>Reseacher Email</th>" +
-					"<th>ContactNo</th>" +
+					"<th>Researcher Email</th>" +
+					"<th>Contact No</th>" +
 					"<th>Research Project Category</th>" +
 					"<th>Update</th><th>Remove</th></tr>"; 
 	 
@@ -138,6 +138,50 @@ public class Researcher {
 		return output; 
 	 }
 
+	
+	public String updateItem(String ID, String code, String name, String email, int phoneNo, String category)
+	 { 
+		String output = ""; 
+		try
+		{ 
+			Connection con = connect(); 
+			if (con == null) 
+			{
+				return "Error while connecting to the database for updating."; 
+			} 
+			
+			System.out.println("1");
+			// create a prepared statement
+			String query = "UPDATE researcher SET researcherCode=?,researcherName=?,Email=?,contactNo=?,projectCategory=? WHERE reseacherID=?"; 
+							PreparedStatement preparedStmt = con.prepareStatement(query); 
+							
+			System.out.println("2");
+			
+			// binding values
+			
+			preparedStmt.setString(1, code); 
+			preparedStmt.setString(2, name); 
+			preparedStmt.setString(3, email); 
+			preparedStmt.setInt(4, phoneNo); 
+			preparedStmt.setString(5, category); 
+			preparedStmt.setString(6, ID);
+			
+			System.out.println("3");
+			// execute the statement
+			preparedStmt.execute(); 
+			
+			System.out.println("4");
+			con.close(); 
+			output = "Updated successfully"; 
+		} 
+		catch (Exception e) 
+		{ 
+			output = "Error while updating the item.";
+			e.printStackTrace();
+			//System.err.println(e.getMessage()); 
+		} 
+		return output; 
+	 } 
 
 	
 }
