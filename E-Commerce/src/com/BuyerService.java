@@ -28,7 +28,7 @@ public class BuyerService
    public String insertBuyer(@FormParam("Buyer Code") String BuyerCode, 
     @FormParam("Buyer Name") String BuyerName, 
     @FormParam("Buyer Email") String BuyerEmail, 
-    @FormParam("Buyer Contact Number") Integer BuyerContactNumber,
+    @FormParam("Buyer Contact Number") String BuyerContactNumber,
     @FormParam("Buyer Address") String BuyerAddress)
    
    { 
@@ -48,6 +48,7 @@ public class BuyerService
     { 
        return BuyerObj.readBuyer(); 
     }
+   
    @PUT
    @Path("/") 
    @Consumes(MediaType.APPLICATION_JSON) 
