@@ -37,5 +37,15 @@ public class ResearcherService {
 		System.out.println(researcherName);
 		return output; 
 	}
+	
+	
+	@GET
+	@Path("/") 
+	@Produces(MediaType.TEXT_HTML) 
+	public String readItems() 
+	 { 
+		return itemObj.readItems();  
+	 }
+	
 
 }
