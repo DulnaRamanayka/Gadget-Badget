@@ -20,7 +20,7 @@ public class Buyer {
     {e.printStackTrace();} 
      return con; 
     } 
-   public String insertBuyer(String code, String name, String email, Integer buyerContactNumber, String address) 
+   public String insertBuyer(String code, String name, String email, String contactNumber, String address) 
    { 
      String output = ""; 
      try
@@ -41,7 +41,7 @@ public class Buyer {
     preparedStmt.setString(2, code); 
     preparedStmt.setString(3, name); 
     preparedStmt.setString(4, email); 
-    preparedStmt.setInt(5, buyerContactNumber); 
+    preparedStmt.setInt(5, Integer.parseInt(contactNumber)); 
     preparedStmt.setString(6,address);
     
     System.out.println(code);
@@ -84,7 +84,7 @@ try
    String BuyerCode = rs.getString("Buyer Code"); 
    String BuyerName = rs.getString("Buyer Name");
    String BuyerEmail = rs.getString("Buyer Email");
-   String BuyerContactNumber = rs.getString("Buyer Contact Number"); 
+   String BuyerContactNumber = Integer.toString(rs.getInt("Buyer Contact Number")); 
    String BuyerAddress = rs.getString("Buyer Address"); 
 
    // Add into the html table
@@ -104,7 +104,8 @@ try
    catch (Exception e) 
  { 
    output = "Error while reading Buyer."; 
-   System.err.println(e.getMessage()); 
+   e.printStackTrace();
+   //System.err.println(e.getMessage());  
  } 
    return output; 
  } 
@@ -126,7 +127,7 @@ try
    preparedStmt.setString(1, code); 
    preparedStmt.setString(2, name);
    preparedStmt.setString(2, email); 
-   preparedStmt.setString(3,contactNumber); 
+   preparedStmt.setInt(3,Integer.parseInt(contactNumber)); 
    preparedStmt.setString(4, address); 
    preparedStmt.setInt(5, Integer.parseInt(ID)); 
 
