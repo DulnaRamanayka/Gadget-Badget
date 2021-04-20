@@ -126,10 +126,10 @@ try
 //binding values
    preparedStmt.setString(1, code); 
    preparedStmt.setString(2, name);
-   preparedStmt.setString(2, email); 
-   preparedStmt.setInt(3,Integer.parseInt(contactNumber)); 
-   preparedStmt.setString(4, address); 
-   preparedStmt.setInt(5, Integer.parseInt(ID)); 
+   preparedStmt.setString(3, email); 
+   preparedStmt.setInt(4,Integer.parseInt(contactNumber)); 
+   preparedStmt.setString(5, address); 
+   preparedStmt.setInt(6, Integer.parseInt(ID)); 
 
    System.out.println(code);
    System.out.println(name);
