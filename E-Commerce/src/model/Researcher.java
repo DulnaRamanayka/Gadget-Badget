@@ -74,4 +74,70 @@ public class Researcher {
 			return output; 
 	 } 
 	
+	
+	public String readItems() 
+	 { 
+		String output = ""; 
+		try
+		{ 
+			Connection con = connect(); 
+			if (con == null) 
+			{
+				return "Error while connecting to the database for reading.";
+			} 
+			// Prepare the html table to be displayed
+			output = "<table border='1'><tr><th>Reseacher Code</th><th>Item Name</th>" +
+					"<th>Researcher Name</th>" + 
+					"<th>Reseacher Email</th>" +
+					"<th>ContactNo</th>" +
+					"<th>Research Project Category</th>" +
+					"<th>Update</th><th>Remove</th></tr>"; 
+	 
+			String query = "select * from researcher"; 
+			Statement stmt = con.createStatement(); 
+			ResultSet rs = stmt.executeQuery(query); 
+			
+			//System.out.println(rs.);
+			
+			// iterate through the rows in the result set
+			while (rs.next()) 
+			{ 
+				String reseacherID = Integer.toString(rs.getInt("reseacherID")); 
+				String researcherCode = rs.getString("researcherCode"); 
+				String researcherName = rs.getString("researcherName"); 
+				String Email = rs.getString("Email"); 
+				String contactNo = rs.getString("contactNo");
+				String projectCategory = rs.getString("projectCategory"); 
+			// Add into the html table
+				output += "<tr><td>" + reseacherID + "</td>"; 
+				output += "<td>" + researcherCode + "</td>"; 
+				output += "<td>" + researcherName + "</td>"; 
+				output += "<td>" + Email + "</td>"; 
+				output += "<td>" + contactNo + "</td>"; 
+				output += "<td>" + projectCategory + "</td>"; 
+				
+				// buttons
+				output += "<td><input name='btnUpdate' type='button' value='Update' class='btn btn-secondary'></td>"
+						 + "<td><form method='post' action='items.jsp'>"
+						 + "<input name='btnRemove' type='submit' value='Remove' class='btn btn-danger'>"
+						 + "<input name='itemID' type='hidden' value='" + reseacherID + "'>" + "</form></td></tr>"; 
+			} 
+			con.close(); 
+			// Complete the html table
+			output += "</table>"; 
+		} 
+		catch (Exception e) 
+		{ 
+			output = "Error while reading the items.";
+			e.printStackTrace();
+			
+			//String query = "select * from researcher";
+			//System.out.println(query);
+			//System.err.println(e.getMessage()); 
+		} 
+		return output; 
+	 }
+
+
+	
 }
