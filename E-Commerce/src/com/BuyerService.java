@@ -41,10 +41,10 @@ public class BuyerService
    { 
 	 System.out.println("Hello");  
 	 
-	 System.out.println("A");
+	 //System.out.println("A");
      String output= BuyerObj.insertBuyer(BuyerCode, BuyerName, BuyerEmail, BuyerContactNumber,BuyerAddress);
      
-     System.out.println("B");
+     //System.out.println("B");
      System.out.println(BuyerCode);
      System.out.println(BuyerName);
      return output;
@@ -67,7 +67,7 @@ public class BuyerService
    public String updateBuyer(String BuyerData) 
    
    { 
-	   System.out.println("h");
+	   //System.out.println("h");
    //Convert the input string to a JSON object 
     JsonObject BuyerObject = new JsonParser().parse(BuyerData).getAsJsonObject(); 
     
@@ -81,7 +81,7 @@ public class BuyerService
     String BuyerAddress =BuyerObject.get("Buyer Address").getAsString(); 
     int BuyerContactNum = Integer.parseInt(BuyerContactNumber); 
     int BuyerId=Integer.parseInt(BuyerID);
-    System.out.println("j");
+   // System.out.println("j");
     
     
     String output = BuyerObj.updateBuyer(BuyerId,BuyerCode, BuyerName, BuyerEmail,BuyerContactNum,BuyerAddress);
@@ -96,13 +96,13 @@ public class BuyerService
    { 
    //Convert the input string to an XML document
     org.jsoup.nodes.Document doc = Jsoup.parse( BuyerData, "", Parser.xmlParser());
-    System.out.println("cat");
+    //System.out.println("cat");
     System.out.println(doc.toString());
 
     
    //Read the value from the element <itemID>
     String BuyerID = doc.select("BuyerID").text();
-    System.out.println("dog :"+BuyerID);
+    //System.out.println("dog :"+BuyerID);
     
     
     String output = BuyerObj.deleteBuyer(BuyerID);
