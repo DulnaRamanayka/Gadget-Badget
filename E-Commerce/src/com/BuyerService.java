@@ -28,7 +28,7 @@ public class BuyerService
    public String insertBuyer(@FormParam("Buyer Code") String BuyerCode, 
     @FormParam("Buyer Name") String BuyerName, 
     @FormParam("Buyer Email") String BuyerEmail, 
-    @FormParam("Buyer Contact Number") String BuyerContactNumber,
+    @FormParam("Buyer Contact Number") int BuyerContactNumber,
     @FormParam("Buyer Address") String BuyerAddress)
    
    { 
@@ -65,8 +65,10 @@ public class BuyerService
     String BuyerEmail = BuyerObject.get("Buyer Email").getAsString(); 
     String BuyerContactNumber =BuyerObject.get("Buyer Contact Number").getAsString(); 
     String BuyerAddress =BuyerObject.get("Buyer Address").getAsString(); 
+    int BuyerContactNum = Integer.parseInt(BuyerContactNumber); 
     
-    String output = BuyerObj.updateBuyer(BuyerID,BuyerCode, BuyerName, BuyerEmail,BuyerContactNumber,BuyerAddress);
+    
+    String output = BuyerObj.updateBuyer(BuyerID,BuyerCode, BuyerName, BuyerEmail,BuyerContactNum,BuyerAddress);
     return output;
    }
 }
