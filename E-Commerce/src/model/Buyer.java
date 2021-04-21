@@ -20,7 +20,7 @@ public class Buyer {
     {e.printStackTrace();} 
      return con; 
     } 
-   public String insertBuyer(String code, String name, String email, String contactNumber, String address) 
+   public String insertBuyer(String code, String name, String email, int contactNumber, String address) 
    { 
      String output = ""; 
      try
@@ -36,19 +36,21 @@ public class Buyer {
      String query = " insert into Buyer (`Buyer ID`,`Buyer Code`,`Buyer Name`,`Buyer Email`,`Buyer Contact Number`,`Buyer Address`)"+ " values (?, ?, ?, ?, ?, ?)"; 
      PreparedStatement preparedStmt = con.prepareStatement(query); 
      
+    // System.out.println("1");
     // binding values
     preparedStmt.setInt(1, 0); 
     preparedStmt.setString(2, code); 
     preparedStmt.setString(3, name); 
     preparedStmt.setString(4, email); 
-    preparedStmt.setInt(5, Integer.parseInt(contactNumber)); 
+    preparedStmt.setInt(5,contactNumber); 
     preparedStmt.setString(6,address);
     
     System.out.println(code);
     System.out.println(name);
-    
+    System.out.println("2");
    // execute the statement3
    preparedStmt.execute(); 
+   //System.out.println("3");
    con.close(); 
    output = "Inserted successfully"; 
    } 
@@ -84,7 +86,7 @@ try
    String BuyerCode = rs.getString("Buyer Code"); 
    String BuyerName = rs.getString("Buyer Name");
    String BuyerEmail = rs.getString("Buyer Email");
-   String BuyerContactNumber = Integer.toString(rs.getInt("Buyer Contact Number")); 
+   String BuyerContactNumber = rs.getString("Buyer Contact Number"); 
    String BuyerAddress = rs.getString("Buyer Address"); 
 
    // Add into the html table
@@ -110,7 +112,7 @@ try
    return output; 
  } 
    
-   public String updateBuyer(String ID, String code, String name, String email, String contactNumber, String address)
+   public String updateBuyer(String ID, String code, String name, String email, int contactNum, String address)
    { 
     String output = ""; 
     try
@@ -127,12 +129,13 @@ try
    preparedStmt.setString(1, code); 
    preparedStmt.setString(2, name);
    preparedStmt.setString(3, email); 
-   preparedStmt.setInt(4,Integer.parseInt(contactNumber)); 
+   preparedStmt.setInt(4,contactNum); 
    preparedStmt.setString(5, address); 
    preparedStmt.setInt(6, Integer.parseInt(ID)); 
 
    System.out.println(code);
    System.out.println(name);
+   
    
    // execute the statement
    preparedStmt.execute(); 
