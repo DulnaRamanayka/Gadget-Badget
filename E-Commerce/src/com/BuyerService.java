@@ -3,6 +3,8 @@ package com;
 
 import model.Buyer;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
 
 import javax.ws.rs.Consumes;
 import javax.ws.rs.DELETE;
@@ -75,5 +77,19 @@ public class BuyerService
     String output = BuyerObj.updateBuyer(BuyerID,BuyerCode, BuyerName, BuyerEmail,BuyerContactNum,BuyerAddress);
     return output;
    }
-  
+   @DELETE
+   @Path("/") 
+   @Consumes(MediaType.APPLICATION_XML) 
+   @Produces(MediaType.TEXT_PLAIN) 
+   public String deleteBuyer(String BuyerData) 
+   { 
+   //Convert the input string to an XML document
+    org.jsoup.nodes.Document doc = Jsoup.parse( BuyerData, "", Parser.xmlParser()); 
+    
+   //Read the value from the element <itemID>
+    String BuyerID = doc.select("Buyer ID").text();
+    String output = BuyerObj.deleteBuyer(BuyerID);
+    return output; 
+   }
+   
 }
