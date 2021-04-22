@@ -42,7 +42,7 @@ public class payment {
 
 			preparedStmt.execute();
 			con.close();
-			output = "Inserted successfully";
+			output = "Inserted successfully...";
 		} catch (Exception e) {
 			output = "Error while inserting the payment.";
 			System.err.println(e.getMessage());
