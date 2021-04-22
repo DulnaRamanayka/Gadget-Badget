@@ -14,9 +14,7 @@ import org.jsoup.nodes.Document;
 
 public class ProductService {
 	
-	
-//test
-	int x;
+//Creating  API for All Methods	
 	
 Product productObj = new Product();
 @GET
@@ -36,13 +34,14 @@ public String readProducts()
 @Produces(MediaType.TEXT_PLAIN)
 public String insertProduct
 
-			(@FormParam("productCode") String productCode,
-			@FormParam("productName") String productName,
-			@FormParam("productPrice") String productPrice,
-			@FormParam("productDesc") String productDesc,
-			@FormParam("productRes") String productRes)
+		(@FormParam("productCode") String productCode,
+		@FormParam("productName") String productName,
+		@FormParam("productPrice") String productPrice,
+		@FormParam("productDesc") String productDesc,
+		@FormParam("productRes") String productRes,
+		@FormParam("productType") String productType)
 		{
-			String output = productObj.insertProduct(productCode, productName, productPrice, productDesc,productRes);
+			String output = productObj.insertProduct(productCode, productName, productPrice, productDesc,productRes,productType);
 			return output;
 		}
 
@@ -65,7 +64,8 @@ public String updateProduct(String productData)
 			String productPrice = productObject.get("productPrice").getAsString();
 			String productDesc = productObject.get("productDesc").getAsString();
 			String productRes = productObject.get("productRes").getAsString();
-			String output = productObj.updateProduct(productID, productCode, productName, productPrice, productDesc, productRes);
+			String productType = productObject.get("productType").getAsString();
+			String output = productObj.updateProduct(productID, productCode, productName, productPrice, productDesc, productRes,productType);
 			
 			return output;
 		}
