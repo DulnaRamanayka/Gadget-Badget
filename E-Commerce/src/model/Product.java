@@ -20,7 +20,7 @@ public class Product {
 	{
 			Class.forName("com.mysql.jdbc.Driver");
 
-			//Provide the correct details: DBServer/DBName, username, password
+			//Provide the correct details: DBServer/DBName, Username, password
 			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paf", "root", "");
 	}
 		catch (Exception e)
@@ -29,7 +29,7 @@ public class Product {
  }
 	
 	
-public String insertProduct(String code, String name, String price, String desc,String res) {
+public String insertProduct(String code, String name, String price, String desc,String res, String type) {
 		{
 			String output = "";
 			try
@@ -43,8 +43,8 @@ public String insertProduct(String code, String name, String price, String desc,
 				
 			}
 			// create a prepared statement
-					String query = " insert into product(`productID`,`productCode`,`productName`,`productPrice`,`productDesc`,`productRes`)"
-			                 + " values (?, ?, ?, ?, ?,?)";
+					String query = " insert into product(`productID`,`productCode`,`productName`,`productPrice`,`productDesc`,`productRes`,`productType`)"
+			                 + " values (?, ?, ?, ?, ?,?,?)";
 
 
 					PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -56,12 +56,13 @@ public String insertProduct(String code, String name, String price, String desc,
 					preparedStmt.setDouble(4, Double.parseDouble(price));
 					preparedStmt.setString(5, desc);
 					preparedStmt.setString(6, res);
+					preparedStmt.setString(7, type);
 					
 					//execute the statement
 					
 					preparedStmt.execute();
 					con.close();
-					output = "Inserted successfully";
+					output = "Inserted successfully..";
 					}
 					
 					
@@ -94,6 +95,7 @@ public String readProducts() {
 						"<th>Product Price</th>" +
 						"<th>Product Description</th>" +
 						"<th>Product Resercher</th>" +
+						"<th>Product Type</th>" +
 						"<th>Update</th><th>Remove</th></tr>";
 					
 				String query = "select * from product";
@@ -110,6 +112,7 @@ public String readProducts() {
 					String productPrice = Double.toString(rs.getDouble("productPrice"));
 					String productDesc = rs.getString("productDesc");
 					String productRes = rs.getString("productRes");
+					String productType = rs.getString("productType");
 						
 					// Add into the html table
 					output += "<tr><td>" + productCode + "</td>";
@@ -117,6 +120,7 @@ public String readProducts() {
 					output += "<td>" + productPrice + "</td>";
 					output += "<td>" + productDesc + "</td>";
 					output += "<td>" + productRes + "</td>";
+					output += "<td>" + productType + "</td>";
 						
 					// buttons
 					output += "<td><input name='btnUpdate' type='button' value='Update'class='btn btn-secondary'></td>"
@@ -139,7 +143,7 @@ public String readProducts() {
 		}
 
 
-public String updateProduct(String ID, String code, String name, String price, String desc,String res)
+public String updateProduct(String ID, String code, String name, String price, String desc,String res,String type)
 {
 	 String output = "";
 	 try{
@@ -151,7 +155,8 @@ public String updateProduct(String ID, String code, String name, String price, S
 			 
 		 }
 		// create a prepared statement
-			String query = "UPDATE product SET productCode=?,productName=?,productPrice=?,productDesc=?,productRes=?WHERE productID=?";
+			String query = "UPDATE product SET productCode=?,productName=?,productPrice=?,productDesc=?,productRes=?,productType=?"
+					+ "WHERE productID=?";
 			
 			
 		    PreparedStatement preparedStmt = con.prepareStatement(query);
@@ -163,7 +168,8 @@ public String updateProduct(String ID, String code, String name, String price, S
 			preparedStmt.setDouble(3, Double.parseDouble(price));
 			preparedStmt.setString(4, desc);
 			preparedStmt.setString(5, res);
-			preparedStmt.setInt(6, Integer.parseInt(ID));
+			preparedStmt.setString(6, type);
+			preparedStmt.setInt(7, Integer.parseInt(ID));
 			 	
 				// execute the statement
 				 preparedStmt.execute();
@@ -190,7 +196,7 @@ public String deleteProduct(String productID)
 		if (con == null)
 			
 		{	
-			return "Error while connecting to the database for deleting.";
+			return "Error while connecting to the database for deleting..";
 	
 		}
 		
@@ -211,7 +217,7 @@ public String deleteProduct(String productID)
 		catch (Exception e)
 		{
 		
-			output = "Error while deleting the Product.";
+			output = "Error while deleting the Product..";
 			System.err.println(e.getMessage());
 		}
  
