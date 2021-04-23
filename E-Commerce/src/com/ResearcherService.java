@@ -52,10 +52,10 @@ public class ResearcherService {
 	@Path("/") 
 	@Consumes(MediaType.APPLICATION_JSON) 
 	@Produces(MediaType.TEXT_PLAIN) 
-	public String updateResearcher(String itemData) 
+	public String updateResearcher(String researcherData) 
 	{ 
 		//Convert the input string to a JSON object 
-		JsonObject itemObject = new JsonParser().parse(itemData).getAsJsonObject(); 
+		JsonObject itemObject = new JsonParser().parse(researcherData).getAsJsonObject(); 
 		
 		//System.out.println("5");
 		
@@ -82,12 +82,12 @@ public class ResearcherService {
 	@Path("/") 
 	@Consumes(MediaType.APPLICATION_XML) 
 	@Produces(MediaType.TEXT_PLAIN) 
-	public String deleteResearcher(String itemData) 
+	public String deleteResearcher(String researcherData) 
 	{ 
 		//Convert the input string to an XML document
-		Document doc = Jsoup.parse(itemData, "", Parser.xmlParser()); 
+		Document doc = Jsoup.parse(researcherData, "", Parser.xmlParser()); 
 	 
-		//Read the value from the element <itemID>
+		//Read the value from the element <reseacherID>
 		String researcher_ID = doc.select("reseacherID").text(); 
 		String output = itemObj.deleteResearcher(researcher_ID); 
 		return output; 
