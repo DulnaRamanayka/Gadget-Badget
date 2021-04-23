@@ -75,7 +75,7 @@ public class Researcher {
 	 } 
 	
 	
-	public String readItems() 
+	public String readResearcher() 
 	 { 
 		String output = ""; 
 		try
