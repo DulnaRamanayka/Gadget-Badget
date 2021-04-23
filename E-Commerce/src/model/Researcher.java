@@ -139,7 +139,7 @@ public class Researcher {
 	 }
 
 	
-	public String updateItem(String ID, String code, String name, String email, int phoneNo, String category)
+	public String updateResearcher(String ID, String code, String name, String email, int phoneNo, String category)
 	 { 
 		String output = ""; 
 		try
