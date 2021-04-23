@@ -42,9 +42,9 @@ public class ResearcherService {
 	@GET
 	@Path("/") 
 	@Produces(MediaType.TEXT_HTML) 
-	public String readItems() 
+	public String readResearcher() 
 	 { 
-		return itemObj.readItems();  
+		return itemObj.readResearcher();  
 	 }
 	
 	
