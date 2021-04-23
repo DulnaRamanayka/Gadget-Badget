@@ -52,7 +52,7 @@ public class ResearcherService {
 	@Path("/") 
 	@Consumes(MediaType.APPLICATION_JSON) 
 	@Produces(MediaType.TEXT_PLAIN) 
-	public String updateItem(String itemData) 
+	public String updateResearcher(String itemData) 
 	{ 
 		//Convert the input string to a JSON object 
 		JsonObject itemObject = new JsonParser().parse(itemData).getAsJsonObject(); 
@@ -71,7 +71,7 @@ public class ResearcherService {
 		
 		System.out.println("6");
 		
-		String output = itemObj.updateItem(reseacherID, researcherCode, researcherName, Email, pNo, projectCategory); 
+		String output = itemObj.updateResearcher(reseacherID, researcherCode, researcherName, Email, pNo, projectCategory); 
 		
 		System.out.println("7");
 		return output; 
