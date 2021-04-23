@@ -23,7 +23,7 @@ public class ResearcherService {
 	@Path("/") 
 	@Consumes(MediaType.APPLICATION_FORM_URLENCODED) 
 	@Produces(MediaType.TEXT_PLAIN) 
-	public String insertItem(@FormParam("researcherCode") String researcherCode, 
+	public String insertResearcher(@FormParam("researcherCode") String researcherCode, 
 	 @FormParam("researcherName") String researcherName, 
 	 @FormParam("Email") String Email, 
 	 @FormParam("contactNo") int contactNo,
@@ -31,7 +31,7 @@ public class ResearcherService {
 	
 	{ 
 		System.out.println("Hello");
-		String output = itemObj.insertItem(researcherCode,researcherName, Email, contactNo,projectCategory); 
+		String output = itemObj.insertResearcher(researcherCode,researcherName, Email, contactNo,projectCategory); 
 		
 		System.out.println(researcherCode);
 		System.out.println(researcherName);
