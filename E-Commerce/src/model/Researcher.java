@@ -183,7 +183,7 @@ public class Researcher {
 		return output; 
 	 } 
 	
-	public String deleteItem(String researcher_ID) 
+	public String deleteResearcher(String researcher_ID) 
 	 { 
 		String output = ""; 
 		try
