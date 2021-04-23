@@ -23,7 +23,7 @@ public class Researcher {
 	 }
 	
 	
-	public String insertItem(String code, String name, String email, int phoneNo, String category) 
+	public String insertResearcher(String code, String name, String email, int phoneNo, String category) 
 	 { 
 			String output = ""; 
 			try
