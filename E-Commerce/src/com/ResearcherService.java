@@ -30,11 +30,11 @@ public class ResearcherService {
 	 @FormParam("projectCategory") String projectCategory)
 	
 	{ 
-		System.out.println("Hello");
+		//System.out.println("Hello");
 		String output = itemObj.insertResearcher(researcherCode,researcherName, Email, contactNo,projectCategory); 
 		
-		System.out.println(researcherCode);
-		System.out.println(researcherName);
+		//System.out.println(researcherCode);
+		//System.out.println(researcherName);
 		return output; 
 	}
 	
@@ -57,7 +57,7 @@ public class ResearcherService {
 		//Convert the input string to a JSON object 
 		JsonObject itemObject = new JsonParser().parse(itemData).getAsJsonObject(); 
 		
-		System.out.println("5");
+		//System.out.println("5");
 		
 		//Read the values from the JSON object
 		String reseacherID = itemObject.get("reseacherID").getAsString(); 
@@ -69,11 +69,11 @@ public class ResearcherService {
 		
 		int pNo = Integer.parseInt(contactNo);
 		
-		System.out.println("6");
+		//System.out.println("6");
 		
 		String output = itemObj.updateResearcher(reseacherID, researcherCode, researcherName, Email, pNo, projectCategory); 
 		
-		System.out.println("7");
+		//System.out.println("7");
 		return output; 
 	}
 	
