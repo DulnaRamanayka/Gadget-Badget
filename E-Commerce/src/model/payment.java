@@ -25,7 +25,7 @@ public class payment {
 		try {
 			Connection con = connect();
 			if (con == null) {
-				return "Error while connecting to the database for inserting.";
+				return "Error while connecting to the database for inserting payment.";
 			}
 			// create a prepared statement
 			String query = " insert into paymentdb(`paymentID`,`amount`,`date`,`accountNo`,`paymentType`)"
@@ -44,7 +44,7 @@ public class payment {
 			con.close();
 			output = "Inserted successfully...";
 		} catch (Exception e) {
-			output = "Error while inserting the payment.";
+			output = "Error while inserting the payment";
 			System.err.println(e.getMessage());
 		}
 		return output;
