@@ -150,12 +150,12 @@ public class Researcher {
 				return "Error while connecting to the database for updating."; 
 			} 
 			
-			System.out.println("1");
+			//System.out.println("1");
 			// create a prepared statement
 			String query = "UPDATE researcher SET researcherCode=?,researcherName=?,Email=?,contactNo=?,projectCategory=? WHERE reseacherID=?"; 
 							PreparedStatement preparedStmt = con.prepareStatement(query); 
 							
-			System.out.println("2");
+			//System.out.println("2");
 			
 			// binding values
 			
@@ -166,11 +166,11 @@ public class Researcher {
 			preparedStmt.setString(5, category); 
 			preparedStmt.setString(6, ID);
 			
-			System.out.println("3");
+			//System.out.println("3");
 			// execute the statement
 			preparedStmt.execute(); 
 			
-			System.out.println("4");
+			//System.out.println("4");
 			con.close(); 
 			output = "Updated successfully"; 
 		} 
