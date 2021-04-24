@@ -67,7 +67,7 @@ public class Researcher {
 			} 
 			catch (Exception e) 
 			{ 
-				output = "Error while inserting the item."; 
+				output = "Error while inserting the researcher."; 
 				e.printStackTrace();
 				//System.err.println(e.getMessage()); 
 			} 
@@ -128,7 +128,7 @@ public class Researcher {
 		} 
 		catch (Exception e) 
 		{ 
-			output = "Error while reading the items.";
+			output = "Error while reading the researchers.";
 			e.printStackTrace();
 			
 			//String query = "select * from researcher";
@@ -176,7 +176,7 @@ public class Researcher {
 		} 
 		catch (Exception e) 
 		{ 
-			output = "Error while updating the item.";
+			output = "Error while updating the researcher.";
 			e.printStackTrace();
 			//System.err.println(e.getMessage()); 
 		} 
@@ -206,7 +206,7 @@ public class Researcher {
 		} 
 		catch (Exception e) 
 		{ 
-			output = "Error while deleting the item."; 
+			output = "Error while deleting the researcher."; 
 			System.err.println(e.getMessage()); 
 		} 
 		return output; 
