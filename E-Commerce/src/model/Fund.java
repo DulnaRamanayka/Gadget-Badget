@@ -21,8 +21,8 @@ public class Fund {
 	    {e.printStackTrace();} 
 	     return con; 
 	    }
-	
-	
+	   
+	//insert
 public String insertFund(String totalAmount, String precentage, String time, String date) {
 		{
 			String output = "";
@@ -70,7 +70,7 @@ public String insertFund(String totalAmount, String precentage, String time, Str
 
 		}
 
-
+//read
 public String readFunds() {
 		
 			
@@ -132,7 +132,7 @@ public String readFunds() {
 			return output;
 		}
 
-
+//update
 public String updateFund(String ID, String totalAmount, String precentage, String time, String date)
 {
 	 String output = "";
@@ -175,7 +175,7 @@ public String updateFund(String ID, String totalAmount, String precentage, Strin
 	}
 
 
-
+//delete
 public String deleteFund(String fundID)
 {
 	String output = "";
