@@ -21,54 +21,54 @@
 
 
 	<servlet>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application1</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
 		<load-on-startup>1</load-on-startup>
 	</servlet>
 
 	<servlet-mapping>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application1</servlet-name>
 		<url-pattern>/ProductService/*</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application2</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-		<load-on-startup>2</load-on-startup>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application2</servlet-name>
 		<url-pattern>/BuyerService/*</url-pattern>
 	</servlet-mapping>
 
 
 	<servlet>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application3</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-		<load-on-startup>3</load-on-startup>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application3</servlet-name>
 		<url-pattern>/ResearcherService/*</url-pattern>
 	</servlet-mapping>
 
 	<servlet>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application4</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-		<load-on-startup>4</load-on-startup>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application4</servlet-name>
 		<url-pattern>/paymentService/*</url-pattern>
 	</servlet-mapping>
 	
 <servlet>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application5</servlet-name>
 		<servlet-class>com.sun.jersey.spi.container.servlet.ServletContainer</servlet-class>
-		<load-on-startup>5</load-on-startup>
+		<load-on-startup>1</load-on-startup>
 	</servlet>
 	<servlet-mapping>
-		<servlet-name>Jersey Web Application</servlet-name>
+		<servlet-name>Jersey Web Application5</servlet-name>
 		<url-pattern>/FundService/*</url-pattern>
 	</servlet-mapping>
 
