@@ -92,7 +92,7 @@ public class payment {
 			// Complete the HTML table
 			output += "</table>";
 		} catch (Exception e) {
-			output = "Error while reading the items.";
+			output = "Error while reading the payment.";
 			System.err.println(e.getMessage());
 		}
 		return output;
@@ -105,7 +105,7 @@ public class payment {
 		try {
 			Connection con = connect();
 			if (con == null) {
-				return "Error while connecting to the database for updating.";
+				return "Error while connecting to the database for updating Payments.";
 			}
 			// create a prepared statement
 			String query = "UPDATE paymentdb SET amount=?,date=?,accountNo=?,paymentType=? WHERE paymentID=?";
