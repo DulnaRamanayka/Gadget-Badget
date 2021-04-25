@@ -13,7 +13,7 @@ public class payment {
 			Class.forName("com.mysql.jdbc.Driver");
 
 			// Provide the correct details: DBServer/DBName, Username, password
-			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paymentdb", "root", "");
+			con = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/paydb", "root", "");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -28,7 +28,7 @@ public class payment {
 				return "Error while connecting to the database for inserting payment.";
 			}
 			// create a prepared statement
-			String query = " insert into paymentdb(`paymentID`,`amount`,`date`,`accountNo`,`paymentType`)"
+			String query = " insert into paydb(`paymentID`,`amount`,`date`,`accountNo`,`paymentType`)"
 					+ " values (?, ?, ?, ?, ?)";
 			PreparedStatement preparedStmt = con.prepareStatement(query);
 			// binding values
@@ -62,7 +62,7 @@ public class payment {
 			output = "<table border='1'><tr><th>paymentID</th><th>amount</th><th>date</th>" + "<th>accountNo</th>"
 					+ "<th>paymentType</th>" + "<th>Update</th><th>Remove</th></tr>";
 
-			String query = "select * from paymentdb";
+			String query = "select * from paydb";
 			Statement stmt = con.createStatement();
 			ResultSet rs = stmt.executeQuery(query);
 			
