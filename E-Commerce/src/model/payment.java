@@ -105,7 +105,7 @@ public class payment {
 		try {
 			Connection con = connect();
 			if (con == null) {
-				return "Error while connecting to the database for updating Payments.";
+				return "Error while connecting to the database for updating payment Details.";
 			}
 			// create a prepared statement
 			String query = "UPDATE paymentdb SET amount=?,date=?,accountNo=?,paymentType=? WHERE paymentID=?";
